@@ -1,0 +1,20 @@
+---
+# tasks file for flask_db
+-
+    name: Install Python Flask dependency
+    shell: pip install '{{ item }}'
+
+    with_items:
+            - flask
+            - flask-mysql
+            - MySQL-python 
+
+-
+  name: Copy source code
+  copy:
+    src: app.py
+    dest: /opt/app.py
+
+-
+  name: Start Web server
+  shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &

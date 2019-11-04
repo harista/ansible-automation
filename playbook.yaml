@@ -1,0 +1,7 @@
+-
+  name: 'Deploy a webapp'
+  hosts: utarget1
+  roles:
+    - python
+    - mysql_db
+    - flask_db
